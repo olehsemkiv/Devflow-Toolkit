@@ -1,14 +1,4 @@
----
-title: Огляд
-description: Для чого існує Devflow Toolkit і як ним користуватись.
----
+## Data attributes & states
 
-# Devflow Toolkit
-
-Це внутрішній сайт документації та реюзних рішень для Webflow-команди.
-
-## Що тут буде
-- Modules (JS/CSS): модалки, акордеони, Plyr тощо
-- Standards: структура проєктів, неймінг, правила
-- Checklists: оптимізація, QA перед релізом
-- Templates: шаблони сторінок для однакового оформлення
+- Data attributes: `data-rs-*`
+- States: `is-*`
