@@ -18,7 +18,9 @@ export default defineConfig({
 					label: "Start Here",
 					items: [
 						{ label: "Огляд", link: "/start-here/overview/" },
+						{ label: "Огляд", link: "/start-here/overview/" },
 						{ label: "Як працюємо з Toolkit", link: "/start-here/workflow/" },
+						{ label: "CDN & Releases", link: "/start-here/cdn-and-releases/" },
 					],
 				},
 				{
