@@ -1,8 +1,8 @@
 ---
 
 title: "Accordion Module"
-description: "Акордеони на data-rs-* з is-* стейтами, optional group (single-open), offset для max-height і базовим CSS."
--------------------------------------------------------------------------------------------------------------------------
+description: "Акордеони на data-rs-* з is-* стейтами, optional group (single-open), offset для max-height і режими тригера (item або head)."
+--------------------------------------------------------------------------------------------------------------------------------------------
 
 # Accordion Module
 
@@ -55,15 +55,12 @@ See also:
 
 ## What it does
 
-* Відкриває/закриває accordion item по кліку на `data-rs-accordion-head`
+* Відкриває/закриває accordion item по кліку (режим залежить від `data-rs-accordion-trigger`)
 * Додає/знімає `is-open` на item (та дублює `is-open` на head/panel)
 * Плавно анімує відкриття через `max-height` (виставляється інлайном через JS)
-* Підтримує `data-rs-accordion-group="name"`:
-
-  * якщо в групі відкривається новий item → попередній відкритий item в цій групі закривається
-* Підтримує `data-rs-accordion-offset="24"`:
-
-  * додає пікселі до `scrollHeight`, щоб уникати “обрізання” контенту
+* Підтримує `data-rs-accordion-group="name"` (single-open в групі)
+* Підтримує `data-rs-accordion-offset="24"` (додає px до `scrollHeight`, щоб уникати обрізання)
+* Підтримує `data-rs-accordion-ignore` (елементи, які ніколи не мають тригерити toggle)
 
 ---
 
@@ -144,6 +141,33 @@ See also:
 
 ---
 
+## Trigger modes
+
+### Default (click on item)
+
+За замовчуванням модуль тоглить item по кліку на весь `[data-rs-accordion-item]`, але:
+
+* кліки всередині `[data-rs-accordion-panel]` ігноряться (щоб не закривати при взаємодії з контентом)
+* інтерактивні елементи (`a`, `button`, `input`, `textarea`, `select`, `label`) не тригерять toggle, якщо вони не в head
+
+```html
+<div data-rs-accordion-item>
+  ...
+</div>
+```
+
+### Head-only (click on head)
+
+Щоб toggle працював тільки по head, додай:
+
+```html
+<div data-rs-accordion-item data-rs-accordion-trigger="head">
+  ...
+</div>
+```
+
+---
+
 ## Data attributes
 
 ### Item root
@@ -163,11 +187,18 @@ See also:
 * `data-rs-accordion-open="true"`
   Відкриває item одразу при ініціалізації.
 
+* `data-rs-accordion-trigger="head"`
+  Перемикає режим тригера:
+
+  * якщо атрибут відсутній → default (клік по item, panel кліки ігноряться)
+  * якщо `"head"` → toggle тільки по `data-rs-accordion-head`
+
 ### Inside item
 
 * `data-rs-accordion-head` — зона кліку для toggle
 * `data-rs-accordion-panel` — панель, якій виставляється `max-height`
 * `data-rs-accordion-arrow` — опційний елемент для стилізації (rotate і тд)
+* `data-rs-accordion-ignore` — елемент, кліки по якому ніколи не мають тригерити toggle
 
 ---
 
@@ -222,6 +253,12 @@ document.addEventListener("rs:accordion:close", (e) => console.log(e.detail));
 
 * переконайся, що в item-ів однакове значення `data-rs-accordion-group="..."`
 * переконайся, що group атрибут стоїть саме на `data-rs-accordion-item`, а не всередині
+
+### Toggle спрацьовує при кліку в контенті
+
+* переконайся, що твій контент знаходиться всередині `data-rs-accordion-panel`
+* або додай `data-rs-accordion-trigger="head"` і роби toggle тільки по head
+* або познач конкретні елементи як `data-rs-accordion-ignore`
 
 ### Анімація “смикається”
 
