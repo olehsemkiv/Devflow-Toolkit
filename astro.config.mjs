@@ -18,7 +18,6 @@ export default defineConfig({
 					label: "Start Here",
 					items: [
 						{ label: "Огляд", link: "/start-here/overview/" },
-						{ label: "Огляд", link: "/start-here/overview/" },
 						{ label: "Як працюємо з Toolkit", link: "/start-here/workflow/" },
 						{ label: "CDN & Releases", link: "/start-here/cdn-and-releases/" },
 					],
@@ -48,13 +47,21 @@ export default defineConfig({
 				},
 				{
 					label: "Checklists",
-					items: [{ label: "Optimization", link: "/checklists/optimization/" }],
+					items: [{ label: "Optimization", link: "/modules/checklists/optimization/" }],
 				},
 				{
 					label: "Templates",
 					items: [
 						{ label: "Module Template", link: "/templates/module-template/" },
 						{ label: "Pattern Template", link: "/templates/pattern-template/" },
+					],
+				},
+				{
+					label: "Utilities",
+					items: [
+						{ label: "Smooth Scroll", link: "/utilities/smooth-scroll/" },
+						{ label: "Scroll Bar", link: "/utilities/scroll-bar/" },
+						{ label: "Splide", link: "/utilities/splide/" },
 					],
 				},
 			],
