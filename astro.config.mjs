@@ -27,6 +27,7 @@ export default defineConfig({
 					items: [
 						{ label: "Structure Guide", link: "/standards/structure-guide/" },
 						{ label: "Naming & Conventions", link: "/standards/naming/" },
+						{ label: "Typography", link: "/standards/typography/" },
 					],
 				},
 				{
