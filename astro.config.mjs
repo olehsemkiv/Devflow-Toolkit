@@ -42,7 +42,7 @@ export default defineConfig({
 						},
 						{
 							label: "Media",
-							items: [{ label: "PLYR Module", link: "/modules/media/plyr/" }],
+							items: [{ label: "Custom Player", link: "/modules/media/plyr/" }],
 						},
 					],
 				},
